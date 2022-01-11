@@ -1,0 +1,40 @@
+<form action="your-action" (submit)="onFormSubmit($event)">
+  <div class="dx-fieldset">
+    <div class="dx-fieldset-header">Datos Entrada Inventario</div>
+  
+    <div class="dx-field">
+      <div class="dx-field-label">Producto</div>
+      <div class="dx-field-value">
+        <dx-select-box [dataSource]="dataSourceProductos" displayExpr="proNombre" valueExpr="proId"
+          [(value)]="idProducto" >
+          <dx-validator>
+            <dxi-validation-rule type="required" message="Producto es requerido"></dxi-validation-rule>
+          </dx-validator>
+        </dx-select-box>
+      </div>
+     
+    </div>
+    <div class="dx-field">
+      <div class="dx-field-label">Cantidad</div>
+      <div class="dx-field-value">
+          <dx-number-box
+          [min]="0"
+          [showSpinButtons]="false"
+          [(value)]="cantidad"
+        ></dx-number-box>
+      </div>
+    </div>
+  </div>
+
+  <div class="dx-fieldset">
+    <dx-validation-summary id="summary"></dx-validation-summary>
+
+    <dx-button
+      id="button"
+      text="Crear"
+      type="success"
+      [useSubmitBehavior]="true"
+    >
+    </dx-button>
+  </div>
+</form>

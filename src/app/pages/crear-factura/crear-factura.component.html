@@ -1,0 +1,44 @@
+<form (submit)="onFormSubmit($event)">
+  <div class="dx-fieldset">
+    <div class="dx-fieldset-header">Datos Factura</div>
+    <div class="dx-field">
+      <div class="dx-field-label">Cliente</div>
+      <div class="dx-field-value">
+        <dx-select-box [dataSource]="dataSourceClientes" displayExpr="cliNombres" valueExpr="cliId"
+          [(value)]="idCliente">
+          <dx-validator>
+            <dxi-validation-rule type="required" message="Cliente es requerido"></dxi-validation-rule>
+          </dx-validator>
+        </dx-select-box>
+      </div>
+    </div>
+
+
+  </div>
+
+  <hr>
+  <app-nueva-factura-detalle (enviarFacturaDetalle)="guardarDetalleFactura($event)"></app-nueva-factura-detalle>
+
+  <dx-data-grid class="dx-card wide-card" [dataSource]="listFacDetalle" [showBorders]="true"
+  [focusedRowIndex]="0" [columnAutoWidth]="true" [columnHidingEnabled]="true">
+
+  <dxo-paging [pageSize]="10"></dxo-paging>
+  <dxo-pager [showPageSizeSelector]="true" [showInfo]="true"></dxo-pager>
+  <dxo-filter-row [visible]="true"></dxo-filter-row>
+
+  <dxi-column dataField="DetfacIdProducto" caption="Id producto">
+  </dxi-column>
+  <dxi-column dataField="DetfacValorFacturado" caption="valor" dataType="number" format=",###,###">
+  </dxi-column>
+  <dxi-column dataField="DetfacCantidad"  caption="Cantidad">
+  </dxi-column>
+  <dxi-column dataField="DetfacValorTotalFacturado" caption="Total" dataType="number" format=",###,###" >
+  </dxi-column>
+</dx-data-grid>
+
+  <div class="dx-fieldset">
+    <dx-validation-summary id="summary"></dx-validation-summary>
+    <dx-button id="button" text="Crear Factura" type="success" [useSubmitBehavior]="true">
+    </dx-button>
+  </div>
+</form>

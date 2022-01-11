@@ -1,0 +1,46 @@
+<form action="your-action" (submit)="onFormSubmit($event)">
+  <div class="dx-fieldset">
+    <div class="dx-fieldset-header">Datos Producto</div>
+    <div class="dx-field">
+      <div class="dx-field-label">Nombre</div>
+      <div class="dx-field-value">
+        <dx-text-box  [(value)]="nombre">
+          <dx-validator>
+            <dxi-validation-rule
+              type="required"
+              message="Nombre es requerido"
+            ></dxi-validation-rule>           
+            <dxi-validation-rule
+              type="stringLength"
+              [min]="2"
+              [max]="100"
+              message="Longitud máxima para nombre: 100"
+            ></dxi-validation-rule>
+          </dx-validator>
+        </dx-text-box>
+      </div>
+    </div>
+    <div class="dx-field">
+      <div class="dx-field-label">Valor</div>
+      <div class="dx-field-value">
+          <dx-number-box
+          [min]="0"
+          [showSpinButtons]="false"
+          [(value)]="valor"
+        ></dx-number-box>
+      </div>
+    </div>
+  </div>
+
+  <div class="dx-fieldset">
+    <dx-validation-summary id="summary"></dx-validation-summary>
+
+    <dx-button
+      id="button"
+      text="Crear"
+      type="success"
+      [useSubmitBehavior]="true"
+    >
+    </dx-button>
+  </div>
+</form>

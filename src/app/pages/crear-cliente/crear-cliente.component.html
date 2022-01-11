@@ -1,0 +1,110 @@
+<form action="your-action" (submit)="onFormSubmit($event)">
+  <div class="dx-fieldset">
+    <div class="dx-fieldset-header">Datos Cliente</div>
+    <div class="dx-field">
+      <div class="dx-field-label">Tipo Identificación</div>
+      <div class="dx-field-value">
+        <dx-text-box  [(value)]="tipoId">
+          <dx-validator>
+            <dxi-validation-rule
+              type="required"
+              message="Tipo Identificación es requerido"
+            ></dxi-validation-rule>           
+            <dxi-validation-rule
+              type="stringLength"
+              [min]="2"
+              [max]="10"
+              message="Longitud máxima para Tipo Identificación: 10"
+            ></dxi-validation-rule>
+          </dx-validator>
+        </dx-text-box>
+      </div>
+    </div>
+    <div class="dx-field">
+      <div class="dx-field-label">Identificación</div>
+      <div class="dx-field-value">
+        <dx-text-box  [(value)]="identificacion">
+          <dx-validator>
+            <dxi-validation-rule
+              type="required"
+              message="Identificación es requerido"
+            ></dxi-validation-rule>           
+            <dxi-validation-rule
+              type="stringLength"
+              [min]="2"
+              [max]="20"
+              message="Longitud máxima para Identificación: 20"
+            ></dxi-validation-rule>
+          </dx-validator>
+        </dx-text-box>
+      </div>
+    </div>
+    <div class="dx-field">
+      <div class="dx-field-label">Nombres</div>
+      <div class="dx-field-value">
+        <dx-text-box  [(value)]="nombres">
+          <dx-validator>
+            <dxi-validation-rule
+              type="required"
+              message="Nombres es requerido"
+            ></dxi-validation-rule>           
+            <dxi-validation-rule
+              type="stringLength"
+              [min]="2"
+              [max]="100"
+              message="Longitud máxima para Nombres: 100"
+            ></dxi-validation-rule>
+          </dx-validator>
+        </dx-text-box>
+      </div>
+    </div>
+    <div class="dx-field">
+      <div class="dx-field-label">Apellidos</div>
+      <div class="dx-field-value">
+        <dx-text-box  [(value)]="apellidos">
+          <dx-validator>
+            <dxi-validation-rule
+              type="required"
+              message="Apellidos es requerido"
+            ></dxi-validation-rule>           
+            <dxi-validation-rule
+              type="stringLength"
+              [min]="2"
+              [max]="100"
+              message="Longitud máxima para Apellidos: 100"
+            ></dxi-validation-rule>
+          </dx-validator>
+        </dx-text-box>
+      </div>
+    </div>
+    <div class="dx-field">
+      <div class="dx-field-label">Fecha de nacimiento</div>
+      <div class="dx-field-value">
+        <dx-date-box
+         type="date"
+          [value]="fechaNac"
+          invalidDateMessage="La fecha de nacimiento debe tener el siguiente formato: MM/dd/yyyy"
+        >
+          <dx-validator>
+            <dxi-validation-rule
+              type="required"
+              message="Fecha de nacimiento es requerida"
+            ></dxi-validation-rule>
+          </dx-validator>
+        </dx-date-box>
+      </div>
+    </div>
+  </div>
+
+  <div class="dx-fieldset">
+    <dx-validation-summary id="summary"></dx-validation-summary>
+
+    <dx-button
+      id="button"
+      text="Crear"
+      type="success"
+      [useSubmitBehavior]="true"
+    >
+    </dx-button>
+  </div>
+</form>

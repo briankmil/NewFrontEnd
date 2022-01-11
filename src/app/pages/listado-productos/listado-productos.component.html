@@ -1,0 +1,18 @@
+<h2 class="content-block">Listado Productos</h2>
+
+<dx-data-grid class="dx-card wide-card" [dataSource]="dataSource" [showBorders]="true" [focusedRowEnabled]="true"
+  [focusedRowIndex]="0" [columnAutoWidth]="true" [columnHidingEnabled]="true">
+
+  <dxo-paging [pageSize]="10"></dxo-paging>
+  <dxo-pager [showPageSizeSelector]="true" [showInfo]="true"></dxo-pager>
+  <dxo-filter-row [visible]="true"></dxo-filter-row>
+
+  <dxi-column dataField="proId" caption="Id">
+  </dxi-column>
+  <dxi-column dataField="proNombre" caption="Nombre">
+  </dxi-column>
+  <dxi-column dataField="proValorVentaPublico" dataType="number" caption="Valor venta" format=",###,###" >
+  </dxi-column>
+  <dxi-column dataField="proInventario" caption="Inventario">
+  </dxi-column>
+</dx-data-grid>
